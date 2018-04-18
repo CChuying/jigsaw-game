@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=750, user-scalable=no">
+	<meta charset="UTF-8"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-title" content="Map">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+    <meta http-equiv="expires" content="0">
+	<meta content="maximum-dpr=2" name="flexible" />
+	<script src="js/flexible_css.debug.js"></script>
+	<script src="js/flexible.debug.js"></script>
+	<link rel="stylesheet" href="css/index.css"/>
+	<title>广东好拼</title>
+</head>
+<body>
+	<div class="time">00:00:00</div>
+	<canvas id = "map"></canvas>
+	<div class="count-down-img">
+		<img src="img/number/first.png"  class="hide f">
+  		<img src="img/number/second.png" class="hide s">
+  		<img src="img/number/third.png" class="hide t">
+	</div>
+	<div class="choice-box">
+		<canvas id = "map1" width = "200" height = "200" class="choice"></canvas>
+		<canvas id = "map2" width = "200" height = "200" class="choice"></canvas>
+		<canvas id = "map3" width = "200" height = "200" class="choice"></canvas>
+	</div>
+	<img src="img/word.png" class="success-word hide">
+	<div class="btn-box">
+		<span class="start-btn"></span>
+		<span class="ranking-btn"></span>
+	</div>
+	<div class="mask hide"></div>
+  	<div class="result hide">
+  		<img src="img/userphoto.png" class="hide" id="frame">
+  		<img src="img/ranking-frm.png" class="hide" id="rfrm">
+  		<img src="img/photo-frm.png" class="hide" id="pfrm">
+  		<img src="img/no1.png" class="hide" id="no1">
+  		<img src="img/no2.png" class="hide" id="no2">
+  		<img src="img/no3.png" class="hide" id="no3">
+  		<img src="img/time-icon.png" class="hide" id="time-icon">
+  		<span class="top-btn hide"></span>
+  		<span class="close-btn"></span>
+  		<canvas id = "result-canvas"></canvas>
+  		<div class="btn-box">
+  			<span class="share-btn"></span>
+  			<span class="ranking-btn"></span>
+  		</div>
+  	</div>
+	<span class="rule-btn"></span>
+	<div class="rule-box hide">
+		<span class="close-rule-btn"></span>
+		<ul>
+			<li><span>（1）</span><span>拖动各地市拼图到地图中的空白位置，一起来“广东好拼”；</span></li>
+		    <li><span>（2）</span><span>成功通关后，可转发成绩单，邀请小伙伴参与PK；同时点击各地市，欣赏田园盛景；</span></li>
+		    <li><span>（3）</span><span>本游戏由羊城晚报新媒体荣誉推出。</span></li>
+		</ul>
+		
+	</div>
+	<div class="ranking-box hide ">
+		<ul>
+			<li><div class="r"><img src="img/number/1.png"></div><div class="rank1"><img src="img/bb.jpg" class="p"></div><div class="n">网友名称</div><div class="t">02:13:14</div></li>
+			<li><div class="r"><img src="img/number/2.png"></div><div class="rank2"><img src="img/bb.jpg" class="p"></div><div class="n">网友名称</div><div class="t">02:13:14</div></li>
+			<li><div class="r"><img src="img/number/3.png"></div><div class="rank3"><img src="img/yangmi.jpg" class="p ti"></div><div class="n ti">网友名称</div><div class="t">02:13:14</div></li>
+			<li><div class="r"><img src="img/number/4.png"></div><div class="rank"><img src="img/bb.jpg" class="p"></div><div class="n ti">网友名称</div><div class="t">02:13:14</div></li>
+			<li><div class="r"><img src="img/number/4.png"></div><div class="rank"><img src="img/bb.jpg" class="p"></div><div class="n ti">网友名称</div><div class="t">02:13:14</div></li>
+			<li><div class="r"><img src="img/number/5.png"></div><div class="rank"><img src="img/bb.jpg" class="p"></div><div class="n ti">网友名称</div><div class="t">02:13:14</div></li>
+			<li><div class="r"><img src="img/number/6.png"></div><div class="rank"><img src="img/bb.jpg" class="p"></div><div class="n ti">网友名称</div><div class="t">02:13:14</div></li>
+			<li><div class="r"><img src="img/number/7.png"></div><div class="rank"><img src="img/bb.jpg" class="p"></div><div class="n ti">网友名称</div><div class="t">02:13:14</div></li>
+			<li><div class="r"><img src="img/number/8.png"></div><div class="rank"><img src="img/bb.jpg" class="p"></div><div class="n ti">网友名称</div><div class="t">02:13:14</div></li>
+			<li><div class="r"><img src="img/number/9.png"></div><div class="rank"><img src="img/bb.jpg" class="p"></div><div class="n ti">网友名称</div><div class="t">02:13:14</div></li>
+			<li><div class="r"><img src="img/number/1.png"><img src="img/number/0.png"></div><div class="rank"><img src="img/bb.jpg" class="p"></div><div class="n ti">网友名称</div><div class="t">02:13:14</div></li>
+		</ul>
+	</div>
+  	<div class="music-btn"><span id="musicPlayer" class="music"></span></div>
+  	<div class="loading">
+	  	<ul id="progress" class="running">
+			<li><div id="layer1" class="ball"></div><div id="layer7" class="pulse"></div></li>
+			<li><div id="layer2" class="ball"></div><div id="layer8" class="pulse"></div></li>
+			<li><div id="layer3" class="ball"></div><div id="layer9" class="pulse"></div></li>
+			<li><div id="layer4" class="ball"></div><div id="layer10" class="pulse"><11.3875rem/li>
+			<li><div id="layer5" class="ball"></div><div id="layer11" class="pulse"></div></li>
+		</ul>
+	</div>
+	
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/game.js"></script>
+	<script type="text/javascript" src="js/music.js"></script>
+	<script type="text/javascript">
+	    // 添加背景音乐插件
+	    var Bgmusic = new Bgmusic({
+	        musicSrc: 'js/music.mp3',
+	        musicBtnId: 'musicPlayer',
+	    });
+	    var audio = document.getElementsByTagName('audio')[0];
+		audio.play();
+		document.addEventListener("WeixinJSBridgeReady", function() {
+			audio.play();
+		}, false);
+	</script>
+</body>
+</html>
